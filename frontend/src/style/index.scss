@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+  font-family: 'Helvetica ', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  #root {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: whitesmoke;
+
+    .visited {
+      background-color: rgb(58, 172, 238);
+      color: white;
+    }
+  }
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

@@ -1,0 +1,36 @@
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px 0;
+  margin: 10px 0;
+
+  input, textarea {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  textarea {
+    height: 5em;
+    resize: none;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  .success {
+    display: flex;
+    justify-content: center;
+    background-color: #36a936;
+    color: white;
+    padding: 5px;
+  }
+
+  .warning {
+    display: flex;
+    justify-content: center;
+    background-color: #FF9800;
+    color: white;
+    padding: 5px;
+  }
+}

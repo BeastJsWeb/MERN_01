@@ -1,0 +1,27 @@
+.post {
+  border-radius: 8px;
+  box-shadow: 0px 0px 3px 0px rgb(34 60 80 / 20%);
+  max-height: 50vh;
+  padding: 5px 10px;
+  overflow: auto;
+  background-color: white;
+  margin: 2.4em 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px 0;
+
+  >:nth-child(1) {
+    font-size: 1.2em;
+  }
+
+  img {
+    object-fit: contain;
+    width: 100%;
+    height: 20vh;
+  }
+
+  button {
+    cursor: pointer;
+    margin: 5px;
+  }
+}
