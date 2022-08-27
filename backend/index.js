@@ -26,7 +26,7 @@ app.get('/api', async (req, res) => {
 
 //app.use(cors)
 app.use(express.json())  // for GET, POST...
-app.use(express.static('backend/static')) // for pictures
+app.use(express.static('static')) // for pictures
 app.use(fileUpload({})) // for pictures
 app.use('/api', router)
 

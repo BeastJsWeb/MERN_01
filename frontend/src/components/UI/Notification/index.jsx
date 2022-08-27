@@ -4,8 +4,8 @@ import './index.scss'
 const Notification = ({children, ...props}) => {
   return (
     
-    <div {...props} >
-      
+    <div className="notification" {...props} >
+      {children}
     </div>
   )
 }

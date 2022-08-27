@@ -1,5 +1,5 @@
 import React from 'react'
-import './index.scss'
+import styles from './index.module.scss'
 
 const PostInList = ({data, ...props}) => {
   
@@ -7,7 +7,7 @@ const PostInList = ({data, ...props}) => {
     <div 
       id={data._id}
       onClick={props.onClick} 
-      className={`column__post`}
+      className={styles.body}
     >
       <div>
         {data.title}

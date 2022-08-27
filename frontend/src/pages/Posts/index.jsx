@@ -1,6 +1,6 @@
 import React, { useState, useRef, useMemo } from "react"
 import { Link } from "react-router-dom"
-import './index.scss'
+import styles from './index.module.scss'
 
 import { CreatePostForm } from "./createPostForm"
 import { Notification } from "../../components/UI/Notification"
@@ -16,21 +16,26 @@ const Posts = ({children, ...props}) => {
   const [selectedSort, setSelectedSort] = useState('')
   const formCreate = useRef()
   //const [posts, setPosts] = useState(children)
+  const visited = document.querySelector('.visited')
   
   const handlePost = e => { 
     // send ID
     setPostId(e.currentTarget.id)
     // active post
-    let posts = document.querySelectorAll('.column__post')
-    posts.forEach(post => {
-      post.classList.remove('visited')
-    })
+    if (visited) {
+      visited.classList.remove('visited')
+    }
     e.currentTarget.classList.add('visited')
     // close form
     formCreate.current.open = false
   }
   
-  const handleOpenForm = () => setPostId('')
+  const handleOpenForm = () => {
+    setPostId('')
+    if (visited) {
+      visited.classList.remove('visited')
+    }
+  }
   
   /*const sortedPosts = (e) => {
     setSelectedSort(e.target.value)
@@ -47,14 +52,14 @@ const Posts = ({children, ...props}) => {
   ), [searchQuery, children])
 
   return (
-    <section id="posts">
-      <p className="home" >
+    <section id={styles.component}>
+      <p className={styles.home} >
         Go <Link to="/">Home</Link>
       </p>
-      <div className="posts__body">
+      <div className={styles.body}>
 
-        <section id="posts__list">
-          <div className="search">
+        <section id={styles.list}>
+          <div className={styles.search}>
             <Input 
               type='text'
               maxLength={20}
@@ -72,10 +77,10 @@ const Posts = ({children, ...props}) => {
               ]}
             />
           </div>
-          <div id="posts__total" >
+          <div id={styles.total} >
             Total posts: {SearchedPosts.length}
           </div>
-          <div id="list" >
+          <div id={styles.totalList} >
             {SearchedPosts.length
               ? (SearchedPosts.map(postData => (
                   <PostInList 
@@ -90,7 +95,7 @@ const Posts = ({children, ...props}) => {
           </div>
         </section>
 
-        <section id="posts__item">
+        <section id={styles.item}>
           <details 
             ref={formCreate} 
             onClick={handleOpenForm}

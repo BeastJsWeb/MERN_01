@@ -5,7 +5,7 @@ class fileService {
   saveFile(file) {
     try {
       const fileName = uuid.v4() + '.jpg'
-      const filePath = path.resolve('backend/static', fileName)
+      const filePath = path.resolve('static', fileName)
       file.mv(filePath) // move file to...
       return fileName
 
