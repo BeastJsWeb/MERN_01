@@ -21,22 +21,6 @@
         width: 100%;
       }
 
-      .search {
-        display: flex;
-        flex-direction: row-reverse;
-        gap: 1vw;
-        select {
-          height: min-content;
-          margin: auto auto 0 auto;
-        }
-      }
-
-      #total {
-        font-size: 1.2em;
-        display: flex;
-        justify-content: center;
-      }
-
       #totalList {
         max-height: 600px;
         overflow: auto;

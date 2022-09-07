@@ -1,6 +1,7 @@
-import React, {useState, useEffect} from 'react'
-import './style/App.scss'
+import React from 'react'
 import { Routes, Route } from 'react-router-dom'
+import './style/App.scss'
+import { useFetch } from './hooks/useFetch'
 
 import { NotFoundPage } from './pages/NotFound'
 import { Homepage } from './pages/Homepage'
@@ -10,17 +11,10 @@ import { Posts } from './pages/Posts'
 
 const App = () => {
 
-  const [data, setData] = useState(null)
-  const [posts, setPosts] = useState(null)
+  const {data, loading} = useFetch('/api/posts/')
+  
+  const dataWithPreload = loading ? <Loader /> : (data ? <Posts data={data} /> : '')
 
-  useEffect(() => {
-    fetch(`/api/posts/`)
-      .then(res => res.json())
-      .then(data => setData(data))
-      .catch((e) => console.log(e))
-  }, [posts])
-
-  const dataWithPreload = !data ? <Loader /> : <Posts children={data} setPosts={setPosts} />
   console.log(data)
   
   return (

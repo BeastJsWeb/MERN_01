@@ -1,14 +1,14 @@
 import React from 'react'
-import './index.scss'
+import styles from './index.module.scss'
 
 const Textarea = ({placeholder,...props}) => {
   return (
-    <div className="textarea__group field">
-      <textarea className="textarea__field" {...props} id={placeholder}  />
-      <label 
-        className="textarea__label"
-        htmlFor={placeholder} 
-      >
+    <div className={styles.component}>
+      <textarea 
+        {...props} 
+        id={placeholder}  
+      />
+      <label htmlFor={placeholder} >
         {placeholder}
       </label>
     </div>

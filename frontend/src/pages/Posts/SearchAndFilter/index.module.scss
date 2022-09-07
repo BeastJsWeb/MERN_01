@@ -1,0 +1,17 @@
+.component {
+  display: flex;
+  flex-direction: column;
+  gap: 1vw;
+  align-items: flex-end;
+  
+  select {
+    height: min-content;
+    margin: auto auto 0 auto;
+  }
+  .filter {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1vw;
+    align-items:center;
+  }
+}

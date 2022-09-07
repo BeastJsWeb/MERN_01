@@ -5,8 +5,8 @@ const PostInList = ({data, ...props}) => {
   
   return (
     <div 
-      id={data._id}
-      onClick={props.onClick} 
+      {...props}
+      id={data._id} 
       className={styles.body}
     >
       <div>

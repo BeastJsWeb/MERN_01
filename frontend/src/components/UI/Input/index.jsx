@@ -1,21 +1,29 @@
-import React from 'react'
-import './index.scss'
+import React, { useMemo } from 'react'
+import styles from './index.module.scss'
 
-const Input = (props) => {
-  const file = props.type === 'file' ? 'button__picture' : ''
+const Input = ({placeholder, loaded,...props}) => {
+  
+  const file = useMemo(() => {
+    if (props.type === 'file') return  styles.button
+  }, [props.type])
+  
+  const fileLoaded = useMemo(() => {
+    if (loaded) return  styles.loaded
+    return placeholder
+  }, [loaded, placeholder])
   
   return (
-    <div className="form__group field">
+    <div className={styles.component}>
       <input 
-        {...props} 
-        className={`form__field ${file}`} 
-        id={props.placeholder} 
+        {...props}  
+        className={file}
+        id={placeholder} 
       />
       <label 
-        className={`form__label ${file}`}
-        htmlFor={props.placeholder} 
+        className={[file, fileLoaded].join(' ')}
+        htmlFor={fileLoaded} 
       >
-        {props.placeholder}
+        {placeholder}
       </label>
     </div>
   )

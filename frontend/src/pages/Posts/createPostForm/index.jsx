@@ -9,25 +9,25 @@ import { Input } from '../../../components/UI/Input'
 
 const CreatePostForm = (props) => {
   
-  const [form, setForm] = useState({ title: '', author: '', content: '', picture: null })
+  const [form, setForm] = useState({title: '', author: '', content: '', picture: ''})
   const [message, setMessage] = useState('')
   // create post
   const handleSubmit = (e) => {
     e.preventDefault()
-
-    axios.post('/api/posts', {
-        title: form.title, 
-        author: form.author, 
-        content: form.content,
-        picture: form.picture
-      }, { headers: {
-        'Content-Type': 'multipart/form-data'
-    }})
-    .then(() => {
+    const config = { 
+      headers: {'Content-Type': 'multipart/form-data'}
+    }
+    axios.post('/api/posts', {...form}, config)
+    .then(({data}) => {
       setMessage('created')   // succes message
-      props.setPosts(Date.now()) //update posts list
+      const newPost = {
+        ...form, 
+        _id: data._id,
+        picture: data.picture
+      }
+      props.create(newPost)
       setTimeout(() => setMessage(''), 1000)  // succes message
-      setForm({ title: '', author: '', content: '', picture: null }) // clear input
+      setForm({title: '', author: '', content: '', picture: ''}) // clear input
     })
     .catch(e => {
       console.log(e)
@@ -38,6 +38,7 @@ const CreatePostForm = (props) => {
 
   return (
     <form 
+      autoComplete='off'
       className={styles.component}
       onSubmit={handleSubmit} 
     >
@@ -67,11 +68,12 @@ const CreatePostForm = (props) => {
       />
       <Input
         type='file'
+        loaded={form.picture.name}
         placeholder='Picture'
         onChange={e => setForm({...form, picture: e.target.files[0]})}
       />
       <Button>Send</Button>
-      <Notification className={message}/>
+      <Notification message={message}/>
     </form>
   )
 }

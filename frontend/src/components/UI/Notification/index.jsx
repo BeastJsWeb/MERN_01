@@ -1,10 +1,22 @@
-import React from "react"
-import './index.scss'
+import React, { useMemo } from "react"
+import styles from './index.module.scss'
 
-const Notification = ({children, ...props}) => {
+const Notification = ({children, message,...props}) => {
+  
+  const messageType = useMemo(() => {
+    if (message === 'created') return styles.created
+    if (message === 'warning') return styles.warning
+    if (message === 'deleted') return styles.deleted
+  }, [message])
+  
   return (
-    
-    <div className="notification" {...props} >
+    <div 
+      {...props}
+      className={`
+        ${styles.component}
+        ${messageType}
+      `}
+    >
       {children}
     </div>
   )

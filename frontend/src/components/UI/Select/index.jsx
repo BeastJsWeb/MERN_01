@@ -1,10 +1,10 @@
-import './index.scss'
+import styles from './index.module.scss'
 
 const Select = ({options, defaultValue, ...props}) => {
   return (
-    <label className='select' >
+    <label className={styles.component} >
       <select {...props} >
-        <option disabled value='' >
+        <option >
           {defaultValue}
         </option>
         {options.map(option => 

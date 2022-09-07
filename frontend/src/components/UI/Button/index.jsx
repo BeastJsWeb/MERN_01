@@ -1,11 +1,11 @@
-import './index.scss'
+import styles from './index.module.scss'
 
 const Button = ({children,...props}) => {
   return (
     <button 
       {...props}
       type='submit'
-      className="button"  
+      className={styles.component}  
     >
       {children}
     </button>

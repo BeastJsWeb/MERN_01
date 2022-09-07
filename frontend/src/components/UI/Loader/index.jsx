@@ -1,8 +1,11 @@
-import './index.scss'
+import styles from './index.module.scss'
 
 const Loader = (props) => {
   return (
-    <div className='loader' {...props} >
+    <div 
+      {...props}
+      className={styles.component} 
+    >
       Loadding...
     </div>
   )
