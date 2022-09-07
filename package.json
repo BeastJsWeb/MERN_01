@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "@babel/core": "^7.19.0",
-    "promise-polyfill": "^8.2.3"
-  }
-}

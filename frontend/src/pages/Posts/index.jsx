@@ -24,7 +24,7 @@ const Posts = ({data}) => {
     setPosts([...posts, newPost])
   }
 
-  const deletedPost = (id) => {
+  const deletePost = (id) => {
     setPosts(posts.filter(post => post._id !== id))
     setPost('')
   }
@@ -60,8 +60,7 @@ const Posts = ({data}) => {
           </details>
           { !post ? '' : (
               <Post 
-                delete={deletedPost}
-                deleted={setPost}
+                deletePost={deletePost}
                 post={post}
               /> 
             )

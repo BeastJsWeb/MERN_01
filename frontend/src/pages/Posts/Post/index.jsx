@@ -6,7 +6,7 @@ import { Notification } from '../../../components/UI/Notification'
 import { Button } from '../../../components/UI/Button'
 import { Loader } from '../../../components/UI/Loader'
 
-const Post = ({post,...props}) => { 
+const Post = ({post,deletePost}) => { 
 
   const [message, setMessage] = useState('')
   const [load, setLoad] = useState(false)
@@ -15,7 +15,7 @@ const Post = ({post,...props}) => {
     setLoad(true)
     axios.delete(`/api/posts/${post._id}`)
     .then(() => {
-      props.delete(post._id)
+      deletePost(post._id)
     })
     .catch(e => {
       console.log(e)

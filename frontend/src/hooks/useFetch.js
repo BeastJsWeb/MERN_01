@@ -12,12 +12,12 @@ export const useFetch = (url) => {
       .get(url)
       .then(res => {
         setData(res.data)
-        setLoading(false)
       })
       .catch((e) => {
         console.log(e)
         setError(e)
       })
+      .finally(() => setLoading(false))
   }, [url])
     
   return {data, error, loading}
