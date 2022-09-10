@@ -1,19 +1,19 @@
 import React from 'react'
-import styles from './index.module.scss'
+import cl from './index.module.scss'
 
-const PostInList = ({data, ...props}) => {
+const PostInList = ({post, ...props}) => {
   
   return (
     <div 
       {...props}
-      id={data._id} 
-      className={styles.body}
+      id={post._id} 
+      className={cl.component}
     >
       <div>
-        {data.title}
+        {post.title}
       </div>
       <div>
-        Author: {data.author}
+        Author: {post.author}
       </div>
     </div> 
   )

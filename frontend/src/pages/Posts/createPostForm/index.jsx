@@ -1,46 +1,41 @@
 import React, { useState } from 'react'
 import styles from './index.module.scss'
-import axios from 'axios'
+import postService from '../../../API/postService'
+import { useFetching } from '../../../hooks/useFetching'
 
-import { Notification } from '../../../components/UI/Notification'
+import { Error } from '../../../components/UI/Error'
 import { Textarea } from '../../../components/UI/Textarea'
 import { Button } from '../../../components/UI/Button'
 import { Input } from '../../../components/UI/Input'
+import { Loader } from '../../../components/UI/Loader'
 
-const CreatePostForm = (props) => {
-  
+const CreatePostForm = ({createPost}) => {
+
   const [form, setForm] = useState({title: '', author: '', content: '', picture: ''})
-  const [message, setMessage] = useState('')
-  // create post
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    const config = { 
-      headers: {'Content-Type': 'multipart/form-data'}
+
+  const [handleSubmit, submitEror, submitting] = useFetching( async () => {
+    const createdPost = await postService.create(form)
+    const newPost = {
+      ...form, 
+      _id: createdPost._id,
+      picture: createdPost.picture
     }
-    axios.post('/api/posts', {...form}, config)
-    .then(({data}) => {
-      setMessage('created')   // succes message
-      const newPost = {
-        ...form, 
-        _id: data._id,
-        picture: data.picture
-      }
-      props.create(newPost)
-      setTimeout(() => setMessage(''), 1000)  // succes message
-      setForm({title: '', author: '', content: '', picture: ''}) // clear input
-    })
-    .catch(e => {
-      console.log(e)
-      setMessage('warning')
-      setTimeout(() => setMessage(''), 3000)
-    })
+    createPost(newPost)
+    setForm({title: '', author: '', content: '', picture: ''})
+  })
+  
+  const onSubmit = (e) => {
+    e.preventDefault()
+    handleSubmit()
   }
+
+  if (submitting) return <Loader />
 
   return (
     <form 
       autoComplete='off'
-      className={styles.component}
-      onSubmit={handleSubmit} 
+      onSubmit={onSubmit}
+      className={styles.component} 
     >
       <Input 
         required
@@ -73,7 +68,9 @@ const CreatePostForm = (props) => {
         onChange={e => setForm({...form, picture: e.target.files[0]})}
       />
       <Button>Send</Button>
-      <Notification message={message}/>
+      { submitEror &&
+        <Error>{submitEror}</Error>
+      }
     </form>
   )
 }

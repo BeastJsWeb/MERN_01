@@ -1,10 +1,10 @@
-import styles from './index.module.scss'
+import cl from './index.module.scss'
 import { Input } from '../../../components/UI/Input'
 import { Select } from '../../../components/UI/Select'
 
 const SearchAndFilter = ({filter, setFilter}) => {
   return (
-    <div className={styles.component}>
+    <div className={cl.component}>
       <Input 
         type='text'
         maxLength={20}
@@ -12,7 +12,7 @@ const SearchAndFilter = ({filter, setFilter}) => {
         placeholder='Search...'
         onChange={e => setFilter({...filter, query: e.target.value})}
       />
-      <div className={styles.filter}>
+      <div className={cl.filter}>
         <div>Find by</div>
         <Select 
           value={filter.sort}

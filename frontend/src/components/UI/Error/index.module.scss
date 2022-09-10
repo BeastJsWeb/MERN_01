@@ -1,0 +1,13 @@
+.component {
+  display: flex;
+  justify-content: center;
+  background-color: #FF9800;
+  color: black;
+  padding: calc(1vh + 1vw);
+  position: absolute;
+  bottom: 3%;
+  right: 0;
+  border-bottom-left-radius: 50px;
+  border-top-left-radius: 50px;
+  font-size: larger;
+}

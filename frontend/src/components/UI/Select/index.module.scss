@@ -1,5 +1,7 @@
 .component {
   $height: 36;
+  $color: #dddddd;
+  $bg: #6B6B6B;
   position: relative;
   display: inline-block;
   height: min-content;
@@ -12,7 +14,7 @@
     right: 7px;
     top: 3px;
     width: 22px;
-    background: #fff;
+    background: $bg;
 
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
@@ -32,7 +34,7 @@
     height: 0;
     border-style: solid;
     border-width: 6.9px 4px 0 4px;
-    border-color: #aaa transparent transparent transparent;
+    border-color: $color transparent transparent transparent;
     pointer-events: none;
   }
   select {
@@ -41,12 +43,14 @@
     appearance: none;
     padding: 0 30px 0 10px;
     font-size: inherit;
-    border: 1px solid #e0e0e0;
+    border: 1px solid $color;
     border-radius: 3px;
     line-height: $height + px;
     height: $height + px;
-    background: #fff;
+    background: $bg;
     margin: 0 5px 5px 0;
+    color: $color;
+    cursor: pointer;
 
     option[disabled] {
       background-color: rgb(241, 237, 237); 

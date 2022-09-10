@@ -3,3 +3,11 @@
   display: flex;
   justify-content: center;
 }
+#totalList {
+  overflow: auto;
+  padding: 0 .5vw;
+  max-height: calc(20vh + 20vw);
+  
+}::-webkit-scrollbar {
+  width: 0px;
+}

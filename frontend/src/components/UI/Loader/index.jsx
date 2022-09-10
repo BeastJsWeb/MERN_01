@@ -6,7 +6,6 @@ const Loader = (props) => {
       {...props}
       className={styles.component} 
     >
-      Loadding...
     </div>
   )
 }

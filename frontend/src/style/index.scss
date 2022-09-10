@@ -1,23 +1,26 @@
-body {
+* {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
+}
+body {
   font-family: 'Helvetica ', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+  color: #848585;
+  background-color: #181818e8;
+  font-size: calc(1vw + 1vh) / 2;
+  a {
+    color: #1AA2FF;
+  }
   
   #root {
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    background-color: whitesmoke;
+    height: 100%;
 
     .visited {
-      background-color: rgb(58, 172, 238);
+      background-color: #1AA2FF;
       color: white;
     }
   }
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
 }
