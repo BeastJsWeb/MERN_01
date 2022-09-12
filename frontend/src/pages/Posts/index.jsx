@@ -31,35 +31,24 @@ const Posts = () => {
     fetchPosts()
   }, [])
   
-  const handleOpenForm = () => {
-    setPost('')
-    postsList.current.querySelector('.visited')?.classList.remove('visited')
-  }
+  const handleOpenForm = () => setPost('')
 
-  const handleOpenPost = e => { 
-    // open post
-    setPost(searchedPosts.find(post => post._id === e.currentTarget.id))
-    // active post
-    postsList.current.querySelector('.visited')?.classList.remove('visited')
-    e.currentTarget.classList.add('visited')
-    // close form
-    formCreate.current.open = false
-  }
-  
-  const createPost = newPost => {
-    return setPosts([...posts, newPost])
-  }
+  const createPost = newPost => setPosts([...posts, newPost])
 
   const deletedPost = id => {
     setPost('')
-    setPosts(posts.filter(post => post._id !== id))
+    setPosts(posts.filter(p => p._id !== id))
+  }
+
+  const handleOpenPost = e => { 
+    formCreate.current.open = false
+    setPost(searchedPosts.find(p => p._id === e.currentTarget.id))
   }
 
   return (
     <section id={cl.component}>
       <p className={cl.home} >
-        Go 
-        <Link to="/">Home</Link>
+        Go <Link to="/">Home</Link>
       </p>
       <div className={cl.body}>
         <section id={cl.list}>
@@ -73,6 +62,7 @@ const Posts = () => {
           { isPostsLoading
             ? <Loader />
             : <PostsList
+                post={post}
                 ref={postsList}
                 onClick={handleOpenPost}
                 searchedPosts={searchedPosts}
@@ -81,16 +71,16 @@ const Posts = () => {
         </section>
         <section id={cl.item}>
           <details 
-            onClick={handleOpenForm}
-            ref={formCreate} 
+            ref={formCreate}
+            onClick={handleOpenForm} 
           >
             <summary>Create new post</summary>
             <CreatePostForm createPost={createPost} />
           </details>
           {post 
             ? <Post 
-                deletedPost={deletedPost}
                 post={post}
+                deletedPost={deletedPost}
               /> 
             : ''
           }
