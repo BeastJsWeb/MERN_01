@@ -11,18 +11,6 @@ const PORT = process.env.PORT || 3001
 const DB_URL = `mongodb+srv://user:user@cluster0.vxfa5r5.mongodb.net/?retryWrites=true&w=majority`
 
 const app = express()
-// GET
-app.get('/api', async (req, res) => {
-  try {
-    await // DB
-    console.log(req.query)
-    res.json({
-      message: "GET. Hello from backend express.js"
-    })
-  } catch (e) {
-    res.status(500).json(e)
-  }
-})
 
 //app.use(cors)
 app.use(express.json())  // for GET, POST...

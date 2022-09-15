@@ -1,0 +1,13 @@
+#component {
+  height: 100%;
+  width: 100%;
+
+  main {
+    display: flex;
+    width: 100%;
+    max-width: calc(42vw + 42vh);
+    margin: 0 auto;
+    padding: 1%;
+    max-height: 80%;
+  }
+}

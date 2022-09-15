@@ -1,0 +1,66 @@
+.component {
+  $primary: #11998e;
+  $secondary: #38ef7d;
+  $white: #dddddd;;
+  $gray: #9b9b9b;
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  width: 100%;
+
+  textarea {
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid $gray;
+    outline: 0;
+    font-size: 1rem;
+    color: $white;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+    height: 5em;
+    resize: none;
+    box-sizing: border-box;
+  
+    &::placeholder {
+      color: transparent;
+    }
+  
+    &:placeholder-shown ~ .textarea__label {
+      font-size: 1.1rem;
+      cursor: text;
+      top: 20px;
+    }
+  }
+  
+  label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1.1rem;
+    color: $gray;
+  }
+  
+  textarea:focus {
+    ~ label {
+      position: absolute;
+      top: 0;
+      display: block;
+      transition: 0.2s;
+      font-size: 1.1rem;
+      color: $primary;
+      font-weight:500;    
+    }
+    padding-bottom: 6px;  
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right, $primary,$secondary);
+    border-image-slice: 1;
+  }
+  /* reset input */
+  textarea {
+    &:required,&:invalid { box-shadow:none; }
+  }
+}

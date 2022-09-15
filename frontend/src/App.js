@@ -1,22 +1,19 @@
-import React from 'react'
-import { Routes, Route } from 'react-router-dom'
-import './style/App.scss'
+import React, { useState } from 'react'
+import { AuthContext } from './utils/context/auth'
 
-import { NotFoundPage } from './pages/NotFound'
-import { Homepage } from './pages/Homepage'
-import { Layout } from './components/Layout'
-import { Posts } from './pages/Posts'
+import { PublicRoutes } from './components/routes/puplicRoutes'
+import { PrivatRoutes } from './components/routes/privatRoutes'
 
 const App = () => {
+  const [isAuth, setIsAuth] = useState(false)
   
   return (
-    <Routes>
-      <Route path='/' element={<Layout />} >
-        <Route index path='/' element={<Homepage />} />
-        <Route path='posts' element={<Posts />} />
-        <Route path='*' element={<NotFoundPage />} />
-      </Route>
-    </Routes>
+    <AuthContext.Provider value={{isAuth, setIsAuth}} >
+      { isAuth
+        ? <PrivatRoutes />
+        : <PublicRoutes />
+      }
+    </AuthContext.Provider>
   )
 }
 

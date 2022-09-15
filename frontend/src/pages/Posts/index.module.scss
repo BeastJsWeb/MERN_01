@@ -1,6 +1,5 @@
 #component {
   display: flex;
-  
   flex-direction: column;
   width: 100%;
 
@@ -22,19 +21,12 @@
     }
     
     #item {
+      display: flex;
+      flex-direction: column;
+      gap: 1vw;
       width: 50%;
       @media (max-width: 768px) {
         width: 100%;
-      }
-      details {
-        summary {
-          font-size: 1.1em;
-          cursor: pointer;
-          width: max-content;
-          &:hover {
-            text-decoration: underline;
-          }
-        }
       }
     }
   }
