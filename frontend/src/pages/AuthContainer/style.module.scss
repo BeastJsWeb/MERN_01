@@ -1,0 +1,15 @@
+#component {
+  $color: #dddddd;
+  $bg: #6B6B6B;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1vw;
+
+  >:nth-child(1) {
+    zoom: 1.5;
+    margin-left: -1vw;
+    font-size: larger;
+  }
+}

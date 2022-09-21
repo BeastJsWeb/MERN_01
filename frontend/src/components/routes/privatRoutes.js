@@ -1,6 +1,6 @@
 import React from "react"
 import { Route, Routes } from "react-router-dom"
-import { PageContainer } from "../layouts/PageContainer"
+import { PageContainer } from "../index"
 import { Homepage } from "../../pages/Homepage"
 import { Posts } from "../../pages/Posts"
 import { CreatePost } from "../../pages/Posts/pages/CreatePost"

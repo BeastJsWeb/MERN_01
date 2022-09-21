@@ -1,10 +1,9 @@
 import cl from './index.module.scss'
-import { usePagination } from '../../../utils/hooks/usePagination'
+import { usePagination } from '../../../utils/index'
 
 const Pagination = ({pagesCount, page, changePage}) => {
-
   const [pagesCountArrey] = usePagination(pagesCount)
-
+  
   return (
     <div id={cl.component}>
       {pagesCountArrey.map(p => 

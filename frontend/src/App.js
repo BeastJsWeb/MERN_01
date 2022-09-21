@@ -1,15 +1,13 @@
 import React, { useState } from 'react'
-import { AuthContext } from './utils/context/auth'
-
-import { PublicRoutes } from './components/routes/puplicRoutes'
-import { PrivatRoutes } from './components/routes/privatRoutes'
+import { AuthContext } from './utils/index'
+import { PublicRoutes, PrivatRoutes } from './components/index'
 
 const App = () => {
-  const [isAuth, setIsAuth] = useState(false)
-  
+  const [loggedIn, setLoggedIn] = useState(false)
+
   return (
-    <AuthContext.Provider value={{isAuth, setIsAuth}} >
-      { isAuth
+    <AuthContext.Provider value={{loggedIn, setLoggedIn}} >
+      { loggedIn
         ? <PrivatRoutes />
         : <PublicRoutes />
       }

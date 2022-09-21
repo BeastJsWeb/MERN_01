@@ -1,6 +1,5 @@
 import cl from './index.module.scss'
-import { Input } from '../../../../components/form/Input'
-import { Select } from '../../../../components/form/Select'
+import { Input, Select } from '../../../../components/index'
 
 const SearchAndFilter = ({filter, setFilter}) => {
   return (

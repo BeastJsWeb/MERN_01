@@ -1,15 +1,8 @@
 import React, { useState, useContext } from 'react'
-import styles from './index.module.scss'
+//import cl from './index.module.scss'
 import postService from '../../../../API/services/postService'
-import { useFetching } from '../../../../utils/hooks/useFetching'
-import { PostsContext } from '../../../../utils/context/posts'
-
-import { Form } from '../../../../components/form/form'
-import { Error } from '../../../../components/UI/Error'
-import { Textarea } from '../../../../components/form/Textarea'
-import { Button } from '../../../../components/UI/Button'
-import { Input } from '../../../../components/form/Input'
-import { Loader } from '../../../../components/UI/Loader'
+import { useFetching, PostsContext } from '../../../../utils/index'
+import { Form, Error, Textarea, SubmitButton, Input, Loader } from '../../../../components/index'
 
 const CreatePost = () => {
   const {createPost} = useContext(PostsContext)
@@ -68,9 +61,9 @@ const CreatePost = () => {
         placeholder='Picture'
         onChange={e => setForm({...form, picture: e.target.files[0]})}
       />
-      <Button>Send</Button>
+      <SubmitButton>Send</SubmitButton>
       { submitEror &&
-        <Error>{submitEror}</Error>
+        <Error>{submitEror.message}</Error>
       }
     </Form>
   )

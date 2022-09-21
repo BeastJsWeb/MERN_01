@@ -1,10 +1,7 @@
 import React, { useContext } from 'react'
 import cl from './index.module.scss'
-import { PostsContext } from '../../../../utils/context/posts'
-
-import { Error } from '../../../../components/UI/Error'
-import { Button } from '../../../../components/UI/Button'
-import { Loader } from '../../../../components/UI/Loader'
+import { PostsContext } from '../../../../utils/index'
+import { Error, SubmitButton, Loader } from '../../../../components/index'
 
 const Post = () => { 
   const {post, handleDeletePost, deletePostError, isPostDeliting} = useContext(PostsContext)
@@ -23,11 +20,11 @@ const Post = () => {
           <div>Author: {post.author}</div>
           <div>Content: <br/>{post.content}</div>
           <div>
-            <Button onClick={handleDeletePost} >
+            <SubmitButton onClick={handleDeletePost} >
               Delete
-            </Button>
+            </SubmitButton>
             { deletePostError &&
-              <Error>{deletePostError}</Error>
+              <Error>{deletePostError.message}</Error>
             }
           </div>
           </>

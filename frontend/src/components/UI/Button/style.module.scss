@@ -1,0 +1,12 @@
+.component {
+  $color: #dddddd;
+  padding: calc(.5vw + .5vh) calc(1vw + 1vh);
+  background-color: rgba(0, 0, 0, 0.15);
+  color: $color;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}

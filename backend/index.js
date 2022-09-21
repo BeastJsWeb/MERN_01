@@ -1,14 +1,12 @@
 import express from "express"
 import mongoose from "mongoose"
-import router from "./router.js"
+import router from "./API/routes/router.js"
 import fileUpload from "express-fileupload"
+import { PORT, DB_URL } from "./API/config/config.js"
 //import cors from "./middleware/cors.middleware.js"
 
 // http://localhost:3001/api/posts // posts
 // http://localhost:3001 // picture
-
-const PORT = process.env.PORT || 3001
-const DB_URL = `mongodb+srv://user:user@cluster0.vxfa5r5.mongodb.net/?retryWrites=true&w=majority`
 
 const app = express()
 

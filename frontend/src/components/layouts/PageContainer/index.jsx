@@ -1,7 +1,7 @@
 import React from 'react'
 import cl from './index.module.scss'
 import { Outlet } from 'react-router-dom'
-import { Navbar } from '../Navbar'
+import { Navbar } from '../../index'
 
 const PageContainer = () => {
   return (

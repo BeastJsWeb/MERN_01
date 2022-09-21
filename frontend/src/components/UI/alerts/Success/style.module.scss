@@ -1,0 +1,15 @@
+.component {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #4CAF50;
+  color: black;
+  padding: calc(1vh + 1vw);
+  padding-left: calc(2vh + 2vw);
+  position: absolute;
+  bottom: 3%;
+  right: 0;
+  border-bottom-left-radius: 50px;
+  border-top-left-radius: 50px;
+  font-size: larger;
+}

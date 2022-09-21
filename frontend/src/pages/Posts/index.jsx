@@ -1,19 +1,11 @@
 import React, { useState, useMemo } from "react"
 import cl from './index.module.scss'
-import { useFetching } from "../../utils/hooks/useFetching"
-import { usePosts } from "../../utils/hooks/usePosts"
 import postService from "../../API/services/postService"
-import { usePage } from "../../utils/hooks/usePage"
-import { getPageCount } from "../../utils/pages"
 import { NavLink, Outlet } from "react-router-dom"
-import { PostsContext } from "../../utils/context/posts"
-
+import { useFetching, usePosts, usePage, getPageCount, PostsContext } from "../../utils/index"
+import { Loader, Error, Pagination, HomeLink } from "../../components/index"
 import { SearchAndFilter } from "./components/SearchAndFilter"
 import { PostsList } from "./components/postsList"
-import { Loader } from "../../components/UI/Loader"
-import { Error } from "../../components/UI/Error"
-import { Pagination } from "../../components/UI/Pagination"
-import { HomeLink } from "../../components/UI/homeLink"
 
 const Posts = () => {
   const [filter, setFilter] = useState({ sort: '', query: ''})
@@ -70,7 +62,7 @@ const Posts = () => {
               setFilter={setFilter}
             />
             { postsError &&
-              <Error>{postsError}</Error>
+              <Error>{postsError.message}</Error>
             }
             { isPostsLoading
               ? <Loader />
