@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   gap: 1vw;
-  align-items: flex-end;
   
   select {
     height: min-content;
@@ -10,8 +9,15 @@
   }
   .filter {
     display: flex;
-    justify-content: flex-end;
-    gap: 1vw;
-    align-items:center;
+    justify-content: space-between;
+    
+    label {
+      margin: 0;
+    }
+    div {
+      display: flex;
+      align-items: center;
+      gap: 1vw;
+    }
   }
 }

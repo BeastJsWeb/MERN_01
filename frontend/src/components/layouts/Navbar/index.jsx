@@ -20,7 +20,7 @@ const Navbar = () => {
         </NavLink>
         <NavLink to='/posts' >Posts</NavLink>
       </div>
-      <SubmitButton onClick={handleExit} >Exit</SubmitButton>
+      <SubmitButton onClick={handleExit} >Logout</SubmitButton>
     </header>
   )
 }

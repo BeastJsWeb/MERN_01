@@ -1,11 +1,16 @@
 import styles from './index.module.scss'
 
-const Select = ({options, defaultValue, ...props}) => {
+const Select = ({options, defaultValue,...props}) => {
   return (
     <label className={styles.component} >
-      <select {...props} >
-        <option >
-          {defaultValue}
+      <select 
+        {...props} 
+      >
+        <option 
+          value={defaultValue.value}  
+          hidden 
+        >
+          {defaultValue.name}
         </option>
         {options.map(option => 
           <option 

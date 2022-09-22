@@ -8,7 +8,7 @@ import { SearchAndFilter } from "./components/SearchAndFilter"
 import { PostsList } from "./components/postsList"
 
 const Posts = () => {
-  const [filter, setFilter] = useState({ sort: '', query: ''})
+  const [filter, setFilter] = useState({ by: '', sort: '', query: ''})
   const [posts, setPosts] = useState([])
   const [pageLimit, setPageLimit] = useState(10)
   const [post, setPost] = useState('')
@@ -22,7 +22,7 @@ const Posts = () => {
     fetchPosts()
   }, [])
 
-  const searchedPosts = usePosts( posts, filter.query, filter.sort )
+  const searchedPosts = usePosts( posts, filter.query, filter.by, filter.sort )
 
   const [page, setPage, currentPage] = usePage(searchedPosts, pageLimit)
 
@@ -60,6 +60,8 @@ const Posts = () => {
             <SearchAndFilter 
               filter={filter}
               setFilter={setFilter}
+              pageLimit={pageLimit}
+              setPageLimit={setPageLimit}
             />
             { postsError &&
               <Error>{postsError.message}</Error>
