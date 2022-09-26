@@ -1,12 +1,12 @@
 import * as uuid from 'uuid'
-import * as path from 'path'
+//import * as path from 'path'
 
 class fileService {
-  saveFile(file) {
+  saveFile(req, file) {
     try {
       const fileName = uuid.v4() + '.jpg'
-      const filePath = path.resolve('static', fileName)
-      file.mv(filePath) // move file to...
+      //const filePath = path.resolve('static', fileName)
+      file.mv(req.filePath + '\\' + fileName) // move file to...
       return fileName
 
     } catch (e) {

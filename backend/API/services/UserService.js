@@ -1,7 +1,6 @@
 import User from "../models/User.js"
 import hashService from "./utils/services/hashService.js"
 import jwtService from "./utils/services/jwtService.js"
-import bcrypt from 'bcryptjs'
 
 class UserService {
   async registration({username, password}) {
@@ -12,14 +11,6 @@ class UserService {
   }
 
   async login(user) {
-    /*const user = await User.findOne({username})
-    if (!user) {
-      return {message: `User ${username} not found`}
-    }
-    const validPassword = bcrypt.compareSync(password, user.password)
-    if (!validPassword) {
-      return {message: 'Password not found'}
-    }*/
     const token = jwtService.generateAccessToken(user._id)
     return {token}
   }

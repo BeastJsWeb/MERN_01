@@ -2,6 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://beastjsweb.github.io/MERN_01/frontend",
   "dependencies": {
     "@babel/core": "^7.19.0",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
@@ -30,7 +31,7 @@
     "deploy": "gh-pages -d build",
     "predeploy": "npm run build"
   },
-  "proxy": "http://localhost:3001",
+  "proxy": "https://serene-woodland-96959.herokuapp.com",
   "eslintConfig": {
     "extends": [
       "react-app",
