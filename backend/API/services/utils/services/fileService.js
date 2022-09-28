@@ -6,7 +6,8 @@ class fileService {
     try {
       const fileName = uuid.v4() + '.jpg'
       //const filePath = path.resolve('static', fileName)
-      file.mv(req.filePath + '\\' + fileName) // move file to...
+      const filePath = req.filePath + '\\' + fileName
+      file.mv(filePath) // move file to...
       return fileName
 
     } catch (e) {

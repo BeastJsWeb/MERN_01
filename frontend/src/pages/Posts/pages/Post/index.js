@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import cl from './index.module.scss'
-import { PostsContext } from '../../../../utils/index'
+import { PostsContext, IMG_URL } from '../../../../utils/index'
 import { Error, SubmitButton, Loader } from '../../../../components/index'
 
 const Post = () => { 
@@ -15,7 +15,12 @@ const Post = () => {
         : <>
           <p>{post.title}</p>
           { post.picture &&
-            <img src={`/${post.picture}`} alt='post' width={150} height={100} />
+            <img 
+              src={IMG_URL + post.picture} 
+              alt='post' 
+              width={150} 
+              height={100} 
+            />
           }
           <div>Author: {post.author}</div>
           <div>Content: <br/>{post.content}</div>

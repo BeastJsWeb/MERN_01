@@ -6,6 +6,7 @@ import { usePagination } from './hooks/usePagination'
 import { usePosts } from './hooks/usePosts'
 import { getPageCount } from './pages/pages'
 import { API_URL } from './config'
+import { IMG_URL } from './config'
 
 export { 
   AuthContext,
@@ -15,5 +16,6 @@ export {
   usePagination,
   usePosts,
   getPageCount,
-  API_URL
+  API_URL,
+  IMG_URL
 }

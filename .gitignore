@@ -4,6 +4,7 @@
 */node_modules
 /node_modules
 */static
+/static
 /.pnp
 */.pnp
 .pnp.js
