@@ -2,13 +2,13 @@ import Post from "../models/Post.js"
 import fileService from "./utils/services/fileService.js"
 
 class PostService {
-  async create(req, post, picture) {
+  async create(post, picture) {
     if (!picture) {
       const createdPost = await Post.create(post) // DB
       return createdPost
       
     } else {
-      const fileName = fileService.saveFile(req, picture)
+      const fileName = fileService.saveFile(picture)
       const createdPost = await Post.create({...post, picture: fileName}) // DB
       return createdPost
     }

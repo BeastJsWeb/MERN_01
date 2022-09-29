@@ -10,7 +10,7 @@ You may serve it with a static server:
 
   for load local serve delete from .json:
 
-    "homepage": "https://beastjsweb.github.io/react-react-bootstrap-5/build",
+    "homepage": "https://beastjsweb.github.io/MERN_01/",
 
   "scripts": {
     "predeploy": "npm run build",
@@ -33,4 +33,13 @@ npm: {
 git: {
   git ckeckout 'commit name' - переключиться между коммитами
   got log - список коммитов
+}
+
+heroku: {
+  heroku logs -t 'консось лог в реальном времени'
+  {
+    heroku run bash -a <app -name> "подключитьсяк файлам проекта"
+    ls "получить список"
+    cd <dir> "перейти в папку"
+  }
 }

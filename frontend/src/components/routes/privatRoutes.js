@@ -12,6 +12,7 @@ export const PrivatRoutes = () => {
     <Routes>
       <Route path='/' element={<PageContainer />} >
         <Route index path='/' element={<Homepage />} />
+        <Route path="MERN_01/" element={<Homepage />} />
         <Route path='posts' element={<Posts />} >
           <Route path='form' element={<CreatePost />} />
           <Route path='post/:id' element={<Post />} />

@@ -14,7 +14,7 @@ const Post = () => {
         ? <Loader />
         : <>
           <p>{post.title}</p>
-          { post.picture &&
+          { post.picture && 
             <img 
               src={IMG_URL + post.picture} 
               alt='post' 

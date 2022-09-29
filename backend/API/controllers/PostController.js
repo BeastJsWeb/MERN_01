@@ -4,7 +4,6 @@ class PostController {
   async create(req, res) {
     try {
       const post = await PostService.create(
-        req,
         req.body,
         req.files 
         ? req.files.picture 
